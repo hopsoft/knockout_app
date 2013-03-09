@@ -62,10 +62,10 @@ Now lets wire everything up.
 ).call(this);
 ```
 
-*All of bindings are supported.*
+*All Knockout bindings are supported.*
 
-Not perfect, but its mucho better than before.
-**It's Knockout for the church of the less obtrusive.**
+It may not be perfect, but it's much better than before.
+**We'll call it Knockout for the church of the less obtrusive.**
 Like minded brothers & sisters can now rest at ease.
 
 Enjoy!
