@@ -20,9 +20,51 @@ This means that relief is here for all those who cringe upon seeing markup like 
 ```
 
 Before you flee in panic. Lets try to provide some relief for those whose eyes are bleeding right now.
- 
- Change the above markup to this.
- 
- ```html
- <span id="user-name"></span>
+
+Change the above markup to this.
+
+```html
+<span id="user-name"></span>
+```
+
+ Now lets add the bindings in a less obtrusive way.
+
+ ```javascript
+(function() {
+
+  document.ready(function (event) {
+    var el = document.getElementById("user-name");
+    el.bind = "text: name, css: { 'admin-name': isAdmin()  }";
+  });
+
+).call(this);
  ```
+
+Notice that no new attributes were added to the DOM. *Most of the alternate solutions opt for DOM manipulation.*
+
+Now lets wire everything up.
+
+```javascript
+(function() {
+
+  document.ready(function (event) {
+    var viewModel = {
+      name: "Nathan",
+      isAdmin: function() {
+        return true;
+      }
+    };
+
+    ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
+    ko.applyBindings(viewModel);
+  });
+
+).call(this);
+```
+
+Its not perfect, but is mucho better than before.
+Knockout for the church of the less obtrusive.
+Like minded brothers & sisters can now rest at ease.
+
+Enjoy!
+
