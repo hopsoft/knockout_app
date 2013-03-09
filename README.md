@@ -32,8 +32,8 @@ Change the above markup to this.
  ```javascript
 (function() {
 
-  document.ready(function (event) {
-    var el = document.getElementById("user-name");
+  $(document).ready(function (event) {
+    var el = $("user-name").get(0);
     el.bind = "text: name, css: { 'admin-name': isAdmin()  }";
   });
 
@@ -47,7 +47,7 @@ Now lets wire everything up.
 ```javascript
 (function() {
 
-  document.ready(function (event) {
+  $(document).ready(function (event) {
     var viewModel = {
       name: "Nathan",
       isAdmin: function() {
