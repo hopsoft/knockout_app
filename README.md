@@ -4,9 +4,9 @@ I love Knockout.js for the following reasons.
 
 * Less code needs to be written
 * Templating is kept on the server
-* A focus on data... if the data is right the view is right
+* A focus on data... the view is correct if the data is correct
 
-Knockout's lack of project structure can be jarring, especially if you come from the land of Ember, Angular, or even Backbone. But... this is precisely why you should consider it. Knockout helps you leverage your existing tool chain without introducing too much new complexity.
+Knockout's lack of project structure can be jarring, especially if you come from the land of Ember, Angular, or even Backbone. But... this is precisely why you should consider it. Knockout helps you leverage your existing server based tool chain without introducing too much new client side complexity.
 
 The problem I have with Knockout is its declarative approach. I find the declarative style somewhat offensive for modern web development.
 
@@ -19,7 +19,7 @@ This means that relief is here for all those who cringe upon seeing markup like 
 <span data-bind="text: name, css: { 'admin-name': isAdmin()  }"></span>
 ```
 
-Before you flee in panic. Lets try to provide some relief for those whose eyes are bleeding right now.
+Before you flee in panic. I'll attempt to provide some relief for those whose eyes are bleeding right now.
 
 Change the above markup to this.
 
@@ -40,7 +40,7 @@ Change the above markup to this.
 ).call(this);
  ```
 
-Notice that no new attributes were added to the DOM. *Most of the alternate solutions opt for DOM manipulation.*
+Notice that no new attributes were added to the DOM. *Most other unbostrusive solutions opt for DOM manipulation.*
 
 Now lets wire everything up.
 
@@ -62,8 +62,10 @@ Now lets wire everything up.
 ).call(this);
 ```
 
-Its not perfect, but is mucho better than before.
-Knockout for the church of the less obtrusive.
+*All of bindings are supported.*
+
+Not perfect, but its mucho better than before.
+**It's Knockout for the church of the less obtrusive.**
 Like minded brothers & sisters can now rest at ease.
 
 Enjoy!
