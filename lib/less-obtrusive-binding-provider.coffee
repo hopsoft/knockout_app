@@ -1,3 +1,5 @@
+ko = window.ko
+
 class LessObtrusiveBindingProvider
 
   constructor: ->

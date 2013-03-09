@@ -37,7 +37,7 @@ Change the above markup to this.
     el.bind = "text: name, css: { 'admin-name': isAdmin()  }";
   });
 
-).call(this);
+}).call(this);
  ```
 
 Notice that no new attributes were added to the DOM. *Most other unbostrusive solutions opt for DOM manipulation.*
@@ -59,7 +59,7 @@ Now lets wire everything up.
     ko.applyBindings(viewModel);
   });
 
-).call(this);
+}).call(this);
 ```
 
 *All Knockout bindings are supported.*
