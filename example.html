@@ -28,7 +28,7 @@
 
       // declare bindings
       var el = document.getElementById("user-name");
-      el.bind = "text: fullName, css: { 'admin': isAdmin() }";
+      el.bind = "text: fullName, css: { admin: isAdmin() }";
 
       // setup the binding provider and apply bindings
       ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
