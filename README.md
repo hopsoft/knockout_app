@@ -34,7 +34,7 @@ Change the above markup to this.
 
   $(document).ready(function (event) {
     var el = document.getElementById("user-name");
-    el.bind = "text: name, css: { admin: isAdmin()  }";
+    el.bind = "text: name, css: { admin: isAdmin() }";
   });
 
 }).call(this);
@@ -68,6 +68,8 @@ Now lets wire everything up.
 It may not be perfect, but it's much better than before.
 **We'll call it Knockout for the church of the less obtrusive.**
 Like minded brothers & sisters can now rest at ease.
+
+Check out a working example [here](http://tinkerbin.com/92C0yXi7).
 
 Enjoy!
 
