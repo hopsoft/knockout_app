@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style type="text/css">
+      .admin { color: red; border: solid 1px red; }
+    </style>
+  </head>
+  <body>
+    <span id="user-name"></span>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.1.0.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/hopsoft/less-obtrusive-binding-provider/master/lib/less-obtrusive-binding-provider.js"></script>
+    <script type="text/javascript">
+
+      // define the view model
+      function ViewModel() {
+        var self = this;
+        self.firstName = ko.observable("");
+        self.lastName = ko.observable("");
+        self.fullName = ko.computed(function () {
+          return self.firstName() + " " + self.lastName();
+        });
+        self.isAdmin = ko.computed(function () {
+          return self.lastName().match(/smith|reed/i);
+        });
+      };
+      var viewModel = new ViewModel();
+
+      // declare bindings
+      var el = document.getElementById("user-name");
+      el.bind = "text: fullName, css: { 'admin': isAdmin() }";
+
+      // setup the binding provider and apply bindings
+      ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
+      ko.applyBindings(viewModel);
+
+      // randomly change the view model values
+      function change() {
+        var names = ["James", "John", "Paul", "Mark", "Anita", "Carla", "Erin"];
+        var count = names.length;
+        viewModel.firstName(names[Math.floor(Math.random() * count)]);
+
+        names = ["Smith", "Brown", "Jones", "Hall", "Lee", "Clark", "Reed"];
+        count = names.length;
+        viewModel.lastName(names[Math.floor(Math.random() * count)]);
+      }
+      setInterval(change, 250);
+
+    </script>
+  </body>
+</html>
