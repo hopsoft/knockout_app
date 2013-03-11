@@ -52,11 +52,10 @@ ko.applyBindings(new ViewModel());
 
 While not perfect, it's much better than before.
 We'll call it Knockout for the church of the less obtrusive.
-Like minded brothers & sisters can now rest at ease.
+Like minded brothers & sisters can finally rest at ease.
 
-**NOTE** *All Knockout bindings are supported.*
+**NOTE**: All Knockout bindings are supported.
+Also, you can check out a working example [here](http://tinkerbin.com/92C0yXi7).
 
-You can check out a working example [here](http://tinkerbin.com/92C0yXi7).
-
-Enjoy!
+### Enjoy!
 
