@@ -30,14 +30,8 @@ Change the above markup to this.
  Now lets add the bindings in a less obtrusive way.
 
  ```javascript
-(function() {
-
-  $(document).ready(function (event) {
-    var el = document.getElementById("user-name");
-    el.bind = "text: name, css: { admin: isAdmin() }";
-  });
-
-}).call(this);
+var el = document.getElementById("user-name");
+el.bind = "text: name, css: { admin: isAdmin() }";
  ```
 
 Notice that no new attributes were added to the DOM. *Most other unbostrusive solutions opt for DOM manipulation.*
@@ -45,22 +39,16 @@ Notice that no new attributes were added to the DOM. *Most other unbostrusive so
 Now lets wire everything up.
 
 ```javascript
-(function() {
+function ViewModel() {
+  self = this;
+  self.name = "Nathan";
+  self.isAdmin = function() {
+    return true;
+  }
+};
 
-  $(document).ready(function (event) {
-    function ViewModel() {
-      self = this;
-      self.name = "Nathan";
-      self.isAdmin = function() {
-        return true;
-      }
-    };
-
-    ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
-    ko.applyBindings(new ViewModel());
-  });
-
-}).call(this);
+ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
+ko.applyBindings(new ViewModel());
 ```
 
 *All Knockout bindings are supported.*
