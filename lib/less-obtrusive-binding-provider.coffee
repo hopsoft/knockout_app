@@ -1,6 +1,6 @@
-ko = window.ko
+context = exports ? this
 
-class LessObtrusiveBindingProvider
+class context.ko.LessObtrusiveBindingProvider
 
   constructor: ->
     @baseProvider = new ko.bindingProvider()
@@ -16,4 +16,3 @@ class LessObtrusiveBindingProvider
   getBindingString: (node) ->
     (node.bind || "").replace(/^\s+|\s+$/, "")
 
-ko.LessObtrusiveBindingProvider = LessObtrusiveBindingProvider
