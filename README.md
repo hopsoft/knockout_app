@@ -20,7 +20,6 @@ This means relief can be found for those who cringe upon seeing markup like this
 ```
 
 If your eyes are bleeding right now, allow me to provide some relief.
-
 Change the above markup to this.
 
 ```html
@@ -51,13 +50,13 @@ ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
 ko.applyBindings(new ViewModel());
 ```
 
-*All Knockout bindings are supported.*
-
-It may not be perfect, but it's much better than before.
-**We'll call it Knockout for the church of the less obtrusive.**
+While not perfect, it's much better than before.
+We'll call it Knockout for the church of the less obtrusive.
 Like minded brothers & sisters can now rest at ease.
 
-Check out a working example [here](http://tinkerbin.com/92C0yXi7).
+**NOTE** *All Knockout bindings are supported.*
+
+You can check out a working example [here](http://tinkerbin.com/92C0yXi7).
 
 Enjoy!
 
