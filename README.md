@@ -27,7 +27,7 @@ Change the above markup to this.
 <span id="user-name"></span>
 ```
 
- Now lets add the bindings in a less obtrusive way.
+ Now lets add the bindings in a less obtrusive way with JavaScript.
 
  ```javascript
 var el = document.getElementById("user-name");
@@ -36,7 +36,7 @@ el.bind = "text: name, css: { admin: isAdmin() }";
 
 Notice that no new attributes were added to the DOM. *Most other unbostrusive solutions opt for DOM manipulation.*
 
-Now lets wire everything up.
+Finally we'll wire everything up.
 
 ```javascript
 function ViewModel() {
