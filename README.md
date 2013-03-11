@@ -2,11 +2,11 @@
 
 I love Knockout.js for the following reasons.
 
+* Powerful but simple data binding
 * Less code needs to be written
-* Templating is kept on the server
-* A focus on data... the view is correct if the data is correct
+* Templating can be kept on the server
 
-Knockout's lack of project structure can be jarring, especially if you come from the land of Ember, Angular, or even Backbone. But... this is precisely why you should consider it. Knockout helps you leverage your existing server based tool chain without introducing too much client side complexity.
+Unfortunately Knockout's lack of project structure can be jarring, especially if you come from the land of Ember, Angular, or even Backbone. But... this is precisely why you should consider it. Knockout helps you leverage your existing server based tool chain without introducing too much client side complexity.
 
 The problem I have with Knockout is its declarative approach. I find the declarative style somewhat offensive for modern web development.
 
