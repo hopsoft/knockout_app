@@ -13,7 +13,7 @@ Knockout helps you leverage your existing server based tool chain without introd
 For example, typical HTML generated at the server can act as Knockout's view-templates.
 This saves a ton of time... and code.
 
-My beef with Knockout is its declarative approach, which I find somewhat offensive for modern web development.
+> My beef with Knockout is its declarative approach, which I find somewhat offensive for modern web development.
 
 ## Introducing a less obtrusive binding provider
 
