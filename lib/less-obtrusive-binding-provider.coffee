@@ -14,5 +14,5 @@ class context.ko.LessObtrusiveBindingProvider
     @baseProvider.parseBindingsString bindingString, bindingContext, node
 
   getBindingString: (node) ->
-    (node.bind || "").replace(/^\s+|\s+$/, "")
+    (node.bind || "").replace(/^\s+|\s+$/g, "")
 
