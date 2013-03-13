@@ -21,7 +21,7 @@ Luckily the Knockout team saw fit to support extending the framework with 3rd pa
 This means relief can be found for those who cringe upon seeing markup like this.
 
 ```html
-<span data-bind="text: name, css: { admin: isAdmin()  }"></span>
+<span data-bind="text: name, css: { admin: isAdmin() }"></span>
 ```
 
 If your eyes are bleeding right now, allow me to provide some relief.
