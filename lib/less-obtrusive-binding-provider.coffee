@@ -1,5 +1,7 @@
 context = exports ? this
 
+ko._applyBindings = ko._applyBindings
+
 class context.ko.LessObtrusiveBindingProvider
 
   constructor: ->
@@ -8,19 +10,11 @@ class context.ko.LessObtrusiveBindingProvider
   nodeHasBindings: (node) ->
     @getBindingString(node).length > 0
 
-  # invoked when performing data bindings, see: knockout/src/binding/bindingAttributeSyntax.js:119
   getBindings: (node, bindingContext) ->
-    bindingString = @getBindingString(node)
-    return null unless bindingString.length > 0
-
-    # preserve binding data just in case we need it later
-    node._ko = node._ko
-
-    # throw away the binding data to prevent multiple bindings
-    delete node.ko
-
-    @baseProvider.parseBindingsString bindingString, bindingContext, node
+    node.bindingString ||= @getBindingString(node)
+    return null unless node.bindingString.length > 0
+    @baseProvider.parseBindingsString node.bindingString, bindingContext, node
 
   getBindingString: (node) ->
-    (node.ko || "").replace(/^\s+|\s+$/g, "")
+    (node.binding || "").replace(/^\s+|\s+$/g, "")
 
