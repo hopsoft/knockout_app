@@ -60,7 +60,7 @@ We'll call it Knockout for the church of the less obtrusive.
 Like minded brothers & sisters can finally rest at ease.
 
 **NOTE**: All Knockout bindings are supported.
-Also, you can check out a working example [here](http://tinkerbin.com/92C0yXi7).
+Also, you can check out a [working example here](http://jsfiddle.net/DsWqA/1/).
 
 ### Enjoy!
 
