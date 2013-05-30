@@ -3,6 +3,8 @@
 **Update:** This project was originally a [Knockout binding provider](http://www.knockmeout.net/2011/09/ko-13-preview-part-2-custom-binding.html),
 but has since transitioned to simple helper methods which can help keep your markup clean.
 
+---
+
 I love Knockout.js for the following reasons.
 
 * Powerful but simple data binding
