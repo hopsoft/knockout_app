@@ -39,7 +39,7 @@ Change the above markup to this.
 document.getElementById("user-name").ko("text: name, css: { admin: isAdmin() }");
  ```
 
- Or we can use jQuery.
+ We can also use jQuery.
 
  ```javascript
  $("#user-name").ko("text: name, css: { admin: isAdmin() }");
@@ -64,7 +64,7 @@ We'll call it Knockout for the church of the less obtrusive.
 Like minded brothers & sisters can finally rest at ease.
 
 **NOTE**: All Knockout bindings are supported.
-Also, you can check out a [working example here](http://jsfiddle.net/DsWqA/1/).
+Also, you can check out a [working example here](http://jsfiddle.net/DsWqA/6/).
 
 ### Enjoy!
 
