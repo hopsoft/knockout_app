@@ -35,7 +35,7 @@ Change the above markup to this.
 
  ```javascript
 var el = document.getElementById("user-name");
-el.binding = "text: name, css: { admin: isAdmin() }";
+el.ko = "text: name, css: { admin: isAdmin() }";
  ```
 
 Notice that no new attributes were added to the DOM. *Most other unbostrusive solutions opt for DOM manipulation.*

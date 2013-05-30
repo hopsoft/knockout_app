@@ -14,13 +14,13 @@ class context.ko.LessObtrusiveBindingProvider
     return null unless bindingString.length > 0
 
     # preserve binding data just in case we need it later
-    node._binding = node._binding
+    node._ko = node._ko
 
     # throw away the binding data to prevent multiple bindings
-    delete node.binding
+    delete node.ko
 
     @baseProvider.parseBindingsString bindingString, bindingContext, node
 
   getBindingString: (node) ->
-    (node.binding || "").replace(/^\s+|\s+$/g, "")
+    (node.ko || "").replace(/^\s+|\s+$/g, "")
 
