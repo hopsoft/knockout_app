@@ -15,10 +15,12 @@ This saves a ton of time... and code.
 
 > My beef with Knockout is its declarative approach, which I find somewhat offensive for modern web development.
 
-## Introducing a less obtrusive binding provider
+## Introducing a less obtrusive approach
 
-Luckily the Knockout team saw fit to support extending the framework with 3rd party binding providers.
-This means relief can be found for those who cringe upon seeing markup like this.
+**Update:** This project was originally a [Knockout binding provider](http://www.knockmeout.net/2011/09/ko-13-preview-part-2-custom-binding.html),
+but has since transitioned to simple helper methods which can help keep your markup clean.
+
+Relief can be found for those who cringe upon seeing markup like this.
 
 ```html
 <span data-bind="text: name, css: { admin: isAdmin() }"></span>
@@ -34,11 +36,14 @@ Change the above markup to this.
  Now lets add the bindings in a less obtrusive way with JavaScript.
 
  ```javascript
-var el = document.getElementById("user-name");
-el.binding = "text: name, css: { admin: isAdmin() }";
+document.getElementById("user-name").ko("text: name, css: { admin: isAdmin() }");
  ```
 
-Notice that no new attributes were added to the DOM. *Most other unbostrusive solutions opt for DOM manipulation.*
+ Or we can use jQuery.
+
+ ```javascript
+ $("#user-name").ko("text: name, css: { admin: isAdmin() }");
+ ```
 
 Finally we'll wire everything up.
 
@@ -51,7 +56,6 @@ function ViewModel() {
   }
 };
 
-ko.bindingProvider.instance = new ko.LessObtrusiveBindingProvider();
 ko.applyBindings(new ViewModel());
 ```
 
