@@ -1,7 +1,8 @@
 # A less obtrusive binding provider for Knockout.js
 
 **Update:** This project was originally a [Knockout binding provider](http://www.knockmeout.net/2011/09/ko-13-preview-part-2-custom-binding.html),
-but has since transitioned to simple helper methods which can help keep your markup clean.
+but has since transitioned to simple helper methods that assist in keeping your markup and JavaScript clean.
+YMMV: It's of marginal value since the goals can be achieved with slightly more verbose JavaScript already.
 
 ---
 
