@@ -1,7 +1,6 @@
-Script that provides guidance on app structure for Knockout.js
+## A small script that provides guidance for Knockout app structure
 
-<blockquote class="twitter-tweet"><p><a href="https://twitter.com/steveklabnik">@steveklabnik</a> JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
 * Much lighter than heavy client side frameworks.
 * Treats every page as a small app... look elsewhere for SPA (single page apps).
@@ -9,7 +8,8 @@ Script that provides guidance on app structure for Knockout.js
 * Works with [turbo links](https://github.com/rails/turbolinks/) in Rails, instead of against it.
 * Easily serialize view models into Rails params.
 
-Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/steveklabnik">@steveklabnik</a> JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Example Usage
 
@@ -25,7 +25,7 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
     // add logic to manage the page
     // invoked with page.run
 
-    // provides some extra sugar for models
+    // sugar for models
     page.model = new ko.app.Model({
       id: ko.observable(1),
       name: ko.observable("Nathan Hopkins"),
@@ -42,7 +42,7 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
     // sports unobtrusive databinding if that's your thing
     page.bind(page.model, document.body, {
-      "#name": "value: name", // key = jQuery selector; value = Knockout databinding
+      "#name": "value: name",
       "form": "submit: update"
     });
   });
