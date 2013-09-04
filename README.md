@@ -34,7 +34,7 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
       id: ko.observable(1),
       name: ko.observable("Nathan Hopkins"),
       update: function (form) {
-        $.ajax("/users/" + page.model.id, {
+        $.ajax("/users/" + page.model.id(), {
           type: "PUT",
           data: page.model.data("user"), // => { "user[name]": value, ... }
           success: function (data) {
@@ -56,7 +56,7 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 }(jQuery, ko));
 ```
 
-## Leverage the Asset Pipeline to add structure
+## Leverage the asset pipeline to add structure
 
 It's easy to add some structure to your Knockout app.
 For example, you might prefer to keep your view models in a separate directory.
