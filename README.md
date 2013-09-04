@@ -1,73 +1,54 @@
-# A less obtrusive binding provider for Knockout.js
+Script that provides guidance on app structure for Knockout.js
 
-**Update:** This project was originally a [Knockout binding provider](http://www.knockmeout.net/2011/09/ko-13-preview-part-2-custom-binding.html),
-but has since transitioned to simple helper methods that assist in keeping your markup and JavaScript clean.
-YMMV: It's of marginal value since the goals can be achieved with slightly more verbose JavaScript already.
+<blockquote class="twitter-tweet"><p><a href="https://twitter.com/steveklabnik">@steveklabnik</a> JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
----
+* Much lighter than heavy client side frameworks.
+* Treats every page as a small app... look elsewhere for SPA (single page apps).
+* Works with the asset pipeline in Rails, instead of against it.
+* Works with [turbo links](https://github.com/rails/turbolinks/) in Rails, instead of against it.
+* Easily serialize view models into Rails params.
 
-I love Knockout.js for the following reasons.
+Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
-* Powerful but simple data binding
-* Less code needs to be written
-* Templating can be kept on the server
-
-Unfortunately Knockout's lack of project structure can be jarring, especially if you come from the land of Ember, Angular, or even Backbone.
-
-But, this is precisely why you should consider it.
-Knockout helps you leverage your existing server based tool chain without introducing too much client side complexity.
-For example, typical HTML generated at the server can act as Knockout's view-templates.
-This saves a ton of time... and code.
-
-> My beef with Knockout is its declarative approach, which I find somewhat offensive for modern web development.
-
-## Introducing a less obtrusive approach
-
-Relief can be found for those who cringe upon seeing markup like this.
-
-```html
-<span data-bind="text: name, css: { admin: isAdmin() }"></span>
-```
-
-If your eyes are bleeding right now, allow me to provide some relief.
-Change the above markup to this.
-
-```html
-<span id="user-name"></span>
-```
-
- Now lets add the bindings in a less obtrusive way with JavaScript.
-
- ```javascript
-document.getElementById("user-name").ko("text: name, css: { admin: isAdmin() }");
- ```
-
- We can also use jQuery.
-
- ```javascript
- $("#user-name").ko("text: name, css: { admin: isAdmin() }");
- ```
-
-Finally we'll wire everything up.
+## Example Usage
 
 ```javascript
-function ViewModel() {
-  self = this;
-  self.name = "Nathan";
-  self.isAdmin = function() {
-    return true;
-  }
-};
+(function($, ko) {
 
-ko.applyBindings(new ViewModel());
+  // regex the url must match for this page to 'run'
+  var path = /\/users\/new\/?$/i;
+
+  // the micro app for this page
+  var page = new ko.app.Page(path, function () {
+
+    // add logic to manage the page
+    // invoked with page.run
+
+    // provides some extra sugar for models
+    page.model = new ko.app.Model({
+      id: ko.observable(1),
+      name: ko.observable("Nathan Hopkins"),
+      update: function (form) {
+        $.ajax("/users/" + page.model.id, {
+          type: "PUT",
+          data: page.model.data("user"), // => { "user[name]": value, ... }
+          success: function (data) {
+            // do stuff
+          }
+        });
+      }
+    });
+
+    // sports unobtrusive databinding if that's your thing
+    page.bind(page.model, document.body, {
+      "#name": "value: name", // key = jQuery selector; value = Knockout databinding
+      "form": "submit: update"
+    });
+  });
+
+  $(document).on("ready page:change", page.run);
+
+}(jQuery, ko));
 ```
-
-While not perfect, it's much better than before.
-We'll call it Knockout for the church of the less obtrusive.
-Like minded brothers & sisters can finally rest at ease.
-
-**NOTE**: All Knockout bindings are supported.
-Also, you can check out a [working example here](http://jsfiddle.net/DsWqA/6/).
-
-### Enjoy!
 
