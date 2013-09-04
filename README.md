@@ -71,7 +71,7 @@ For example, you might prefer to keep your view models in a separate directory.
   var path = /\/users\/new\/?$/i;
   var page = new ko.app.Page(path, function () {
 
-    <%= evaluate "../view_models/user_model.js" %>
+    <%= evaluate "../view_models/user_model.js" %> // <--
 
   });
   $(document).on("ready page:change", page.run);
