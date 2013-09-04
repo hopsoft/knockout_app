@@ -19,10 +19,10 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 // app/assets/javascripts/users_new.js
 (function($, ko) {
 
-  // regex the url must match for this page to 'run'
   var path = /\/users\/new\/?$/i;
 
-  // the micro app for this page
+  // page specific logic
+  // only executed when the url matches the path
   var page = new ko.app.Page(path, function () {
 
     // add logic to manage the page
