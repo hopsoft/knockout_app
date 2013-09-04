@@ -56,7 +56,7 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 }(jQuery, ko));
 ```
 
-## Working with the Asset Pipeline in Rails
+## Leverage the Asset Pipeline to add structure
 
 It's easy to add some structure to your Knockout app.
 For example, you might prefer to keep your view models in a separate directory.
