@@ -55,3 +55,34 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 }(jQuery, ko));
 ```
 
+## Working with the Asset Pipeline in Rails
+
+It's easy to add some structure to your Knockout app.
+For example, you might prefer to keep your view models in a separate directory.
+
+1. Create a directory for your view models. e.g. `app/assets/view\_models/`
+1. Create a file for your view model. e.g. `app/assets/view\_models/user\_model.js`
+1. Rename the original file to include the erb pre-processor. e.g. `app/assets/javascripts/users\_new.js.erb`
+1. Add an evaluate call to render the JavaScript partial. e.g.
+
+```javascript
+// app/assets/javascripts/users_new.js
+(function($, ko) {
+
+  var path = /\/users\/new\/?$/i;
+  var page = new ko.app.Page(path, function () {
+
+    <%= evaluate "../view_models/user_model.js" %>
+
+    // page logic
+  });
+
+  $(document).on("ready page:change", page.run);
+
+}(jQuery, ko));
+```
+
+This approach leverages the Asset Pipeline to keep your app's source clean & organized.
+No need to pull in heavy client frameworks or [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition).
+
+
