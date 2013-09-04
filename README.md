@@ -10,6 +10,7 @@
 * Works with the [asset pipeline](http://guides.rubyonrails.org/asset_pipeline.html) in Rails, instead of against it.
 * Works with [turbo links](https://github.com/rails/turbolinks/) in Rails, instead of against it.
 * Easily serialize view models into Rails params.
+* Works outside of Rails too.
 
 Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
