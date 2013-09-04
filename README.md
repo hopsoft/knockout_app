@@ -3,7 +3,7 @@
 <blockquote class="twitter-tweet"><p>JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**A small script that provides some structure and guidance for using Knockout.**
+**A small script that provides structure and guidance for using Knockout.**
 
 * Much lighter than heavy client side frameworks.
 * Treats every page as a small app... look elsewhere for SPA (single page apps).
@@ -16,6 +16,7 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 ## Example
 
 ```javascript
+// app/assets/javascripts/users_new.js
 (function($, ko) {
 
   // regex the url must match for this page to 'run'
