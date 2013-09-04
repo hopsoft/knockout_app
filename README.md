@@ -61,7 +61,7 @@ It's easy to add some structure to your Knockout app.
 For example, you might prefer to keep your view models in a separate directory.
 
 1. Create a directory for your view models. e.g. `app/assets/view_models/`
-1. Create a file for your view model. e.g. `app/assets/view\_models/user_model.js`
+1. Create a file for your view model. e.g. `app/assets/view_models/user_model.js`
 1. Rename the original file to include the erb pre-processor. e.g. `app/assets/javascripts/users_new.js.erb`
 1. Add an evaluate call to render the JavaScript partial. e.g.
 
@@ -78,7 +78,7 @@ For example, you might prefer to keep your view models in a separate directory.
 }(jQuery, ko));
 ```
 
-This approach leverages the Asset Pipeline to keep your app's source clean & organized.
+This approach leverages the asset pipeline to keep your app's source clean & organized.
 No need to pull in heavy client frameworks or [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition).
 
 
