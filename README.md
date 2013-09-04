@@ -7,7 +7,7 @@
 
 * Much lighter than heavy client side frameworks.
 * Treats every page as a small app... look elsewhere for SPA (single page apps).
-* Works with the asset pipeline in Rails, instead of against it.
+* Works with the [asset pipeline](http://guides.rubyonrails.org/asset_pipeline.html) in Rails, instead of against it.
 * Works with [turbo links](https://github.com/rails/turbolinks/) in Rails, instead of against it.
 * Easily serialize view models into Rails params.
 
