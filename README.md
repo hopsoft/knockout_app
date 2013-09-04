@@ -1,8 +1,9 @@
 ## Spice up your apps with Knockout
 
-*A small script that provides some structure and guidance for using Knockout.*
+<blockquote class="twitter-tweet"><p>JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
+**A small script that provides some structure and guidance for using Knockout.**
 
 * Much lighter than heavy client side frameworks.
 * Treats every page as a small app... look elsewhere for SPA (single page apps).
@@ -10,10 +11,9 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 * Works with [turbo links](https://github.com/rails/turbolinks/) in Rails, instead of against it.
 * Easily serialize view models into Rails params.
 
-<blockquote class="twitter-tweet"><p>JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
-## Example Usage
+## Example
 
 ```javascript
 (function($, ko) {
