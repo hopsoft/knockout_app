@@ -75,25 +75,36 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 It's easy to add some structure to your Knockout app.
 For example, you might prefer to keep your view models in a separate directory.
 
-1. Create a directory for your view models. e.g. `app/assets/view_models/`
-1. Create a file for your view model. e.g. `app/assets/view_models/user_model.js`
-1. Rename the original file to include the erb pre-processor. e.g. `app/assets/javascripts/users_new.js.erb`
-1. Add an evaluate call to render the JavaScript partial. e.g.
+Consider the following directory structure.
+
+```
+|-app
+  |-assets
+    |-javascript_partials
+      |-user_model.js    <----- view model code
+    |-javascripts
+      |-application.js
+      |-users_new.js.erb <----- added .erb for pre-processing
+```
+
+Add an evaluate call to render JavaScript partials.
 
 ```javascript
-// app/assets/javascripts/users_new.js
-(function($, ko) {
-  var path = /\/users\/new\/?$/i;
-  var page = new ko.app.Page(path, function () {
+// app/assets/javascripts/users_new.js.erb
 
-    <%= evaluate "../view_models/user_model.js" %> // <--
+(function($, ko) {
+
+  var page = new ko.app.Page(["/users/new"], function () {
+
+    <%= evaluate "../view_models/user_model.js" %> // <----- render the partial
 
   });
+
   $(document).on("ready page:change", page.run);
 }(jQuery, ko));
 ```
 
 This approach leverages the asset pipeline to keep your app's source clean & organized.
-No need to pull in heavy client frameworks or [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition).
+No need to use heavy client frameworks or [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition).
 
 
