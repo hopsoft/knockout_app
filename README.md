@@ -75,19 +75,20 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 It's easy to add some structure to your Knockout app.
 For example, you might prefer to keep your view models in a separate directory.
 
-Consider the following directory structure.
+Simply create a directory structure resembling something like this.
 
 ```
-|-app
-  |-assets
-    |-javascript_partials
-      |-user_model.js    <----- view model code
-    |-javascripts
-      |-application.js
-      |-users_new.js.erb <----- added .erb for pre-processing
+|-project
+  |-app
+    |-assets
+      |-javascript_partials
+        |-user_model.js    <----- view model code
+      |-javascripts
+        |-application.js
+        |-users_new.js.erb <----- added .erb for pre-processing
 ```
 
-Add an evaluate call to render JavaScript partials.
+Then add an evaluate call to render any JavaScript partials.
 
 ```javascript
 // app/assets/javascripts/users_new.js.erb
@@ -96,7 +97,7 @@ Add an evaluate call to render JavaScript partials.
 
   var page = new ko.app.Page(["/users/new"], function () {
 
-    <%= evaluate "../view_models/user_model.js" %> // <----- render the partial
+    <%= evaluate "../javascript_partials/user_model.js" %> // <----- render the partial
 
   });
 
