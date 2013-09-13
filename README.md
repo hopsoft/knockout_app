@@ -105,7 +105,7 @@ Then add an evaluate call to render any JavaScript partials.
 }(jQuery, ko));
 ```
 
-_Important_: Be sure to create partials as closures so they can be safely resused.
+__Important__: Be sure to create partials as closures so they can be safely resused.
 
 This approach leverages the asset pipeline to keep your app's source clean & organized.
 No need to use heavy client frameworks or [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition).
