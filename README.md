@@ -3,14 +3,15 @@
 <blockquote class="twitter-tweet"><p>JavaScript is like a spice. Best used in sprinkles and moderation.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/statuses/374656854825005056">September 2, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**A small script that provides structure and guidance for using Knockout.**
+### A script to provide help & guidance for using Knockout with Rails
 
-* Much lighter than heavy client side frameworks.
-* Treats every page as a small app... look elsewhere for SPA (single page apps).
-* Works with the [asset pipeline](http://guides.rubyonrails.org/asset_pipeline.html) in Rails, instead of against it.
-* Works with [turbo links](https://github.com/rails/turbolinks/) in Rails, instead of against it.
-* Easily serialize view models into Rails params.
-* Also works for non-Rails projects.
+* Much lighter than heavy client side frameworks
+* Treats every page as a tiny Knockout app
+* Designed to work with the [asset pipeline](http://guides.rubyonrails.org/asset_pipeline.html)
+* Designed to Work with [turbo links](https://github.com/rails/turbolinks/)
+* Serialize Knockout models into Rails params
+* Fill knockout models with JSON data
+* Also works for non-Rails projects
 
 Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
