@@ -20,19 +20,22 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 // app/assets/javascripts/users_new.js
 (function($, ko) {
 
-  var path = /\/users\/new\/?$/i;
+  var paths = [
+    "/users/new",
+    "/users/*/edit"
+  ];
 
   // page specific logic
-  // only executed when the url matches the path
-  var page = new ko.app.Page(path, function () {
+  // only executed when the url matches one of the paths
+  var page = new ko.app.Page(paths, function () {
 
     // add logic to manage the page
     // invoked with page.run
 
     // sugar for models
     page.model = new ko.app.Model({
-      id: ko.observable(1),
-      name: ko.observable("Nathan Hopkins"),
+      id: ko.observable(),
+      name: ko.observable(),
       update: function (form) {
         $.ajax("/users/" + page.model.id(), {
           type: "PUT",
@@ -43,6 +46,16 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
         });
       }
     });
+
+    // easily fill the model with data
+    page.model.fill({
+      id: 1,
+      name: "Nate Hopkins"
+    });
+
+    // get/set values with standard knockout
+    page.model.id(); // => 1
+    page.model.id(2);
 
     // sports unobtrusive databinding if that's your thing
     page.bind(page.model, document.body, {
