@@ -34,13 +34,13 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
     // invoked with page.run
 
     // sugar for models
-    page.model = new ko.app.Model({
+    var user = new ko.app.Model({
       id: ko.observable(),
       name: ko.observable(),
       update: function (form) {
-        $.ajax("/users/" + page.model.id(), {
+        $.ajax("/users/" + user.id(), {
           type: "PUT",
-          data: page.model.data("user"), // => { "user[name]": value, ... }
+          data: user.distill("user"), // => { "user[name]": value, ... }
           success: function (data) {
             // do stuff
           }
@@ -49,19 +49,19 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
     });
 
     // easily fill the model with data
-    page.model.fill({
+    user.hydrate({
       id: 1,
       name: "Nate Hopkins"
     });
 
     // get/set values with standard knockout
-    page.model.id(); // => 1
-    page.model.id(2);
+    user.id(); // => 1
+    user.id(2);
 
     // sports unobtrusive databinding if that's your thing
-    page.bind(page.model, document.body, {
+    page.bind(user, document.body, {
       "#name": "value: name",
-      "form": "submit: update"
+      "form":  "submit: update"
     });
   });
 
@@ -69,45 +69,4 @@ Depends on [jQuery](http://jquery.com/) & [Knockout](http://knockoutjs.com/).
 
 }(jQuery, ko));
 ```
-
-## Leverage the asset pipeline to add structure
-
-It's easy to add some structure to your Knockout app.
-For example, you might prefer to keep your view models in a separate directory.
-
-Simply create a directory structure resembling something like this.
-
-```
-|-project
-  |-app
-    |-assets
-      |-javascript_partials
-        |-user_model.js    <----- view model code
-      |-javascripts
-        |-application.js
-        |-users_new.js.erb <----- added .erb for pre-processing
-```
-
-Then add an evaluate call to render any JavaScript partials.
-
-```javascript
-// app/assets/javascripts/users_new.js.erb
-
-(function($, ko) {
-
-  var page = new ko.app.Page(["/users/new"], function () {
-
-    <%= evaluate "../javascript_partials/user_model.js" %> // <----- render the partial
-
-  });
-
-  $(document).on("ready page:change", page.run);
-}(jQuery, ko));
-```
-
-__Important__: Be sure to create partials as closures so they can be safely resused.
-
-This approach leverages the asset pipeline to keep your app's source clean & organized.
-No need to use heavy client frameworks or [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition).
-
 
